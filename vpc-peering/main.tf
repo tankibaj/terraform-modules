@@ -16,6 +16,8 @@ resource "aws_vpc_peering_connection_options" "requester" {
   requester {
     allow_remote_vpc_dns_resolution = var.allow_remote_vpc_dns_resolution
   }
+
+  depends_on = [aws_vpc_peering_connection.this, aws_vpc_peering_connection_accepter.this]
 }
 
 # Route from requester to accepter cidr
@@ -27,7 +29,7 @@ resource "aws_route" "requester" {
   destination_cidr_block    = data.aws_vpc.accepter.cidr_block
   vpc_peering_connection_id = aws_vpc_peering_connection.this.id
 
-  depends_on = [aws_vpc_peering_connection.this]
+  depends_on = [aws_vpc_peering_connection.this, aws_vpc_peering_connection_accepter.this]
 }
 
 
@@ -51,6 +53,8 @@ resource "aws_vpc_peering_connection_options" "accepter" {
   accepter {
     allow_remote_vpc_dns_resolution = var.allow_remote_vpc_dns_resolution
   }
+
+  depends_on = [aws_vpc_peering_connection.this, aws_vpc_peering_connection_accepter.this]
 }
 
 # Route from accepter to requester cidr
@@ -62,5 +66,5 @@ resource "aws_route" "accepter" {
   destination_cidr_block    = data.aws_vpc.requester.cidr_block
   vpc_peering_connection_id = aws_vpc_peering_connection.this.id
 
-  depends_on = [aws_vpc_peering_connection_accepter.this]
+  depends_on = [aws_vpc_peering_connection.this, aws_vpc_peering_connection_accepter.this]
 }
