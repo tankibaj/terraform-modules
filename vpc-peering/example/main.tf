@@ -10,5 +10,5 @@ module "vpc-peering" {
   accepter_vpc_id          = "vpc-00c45gfdjty22"
 
   enable_requester_route = true
-  enable_accepter_route  = false
+  enable_accepter_route  = true
 }

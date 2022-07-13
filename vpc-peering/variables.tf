@@ -62,5 +62,5 @@ variable "auto_accept" {
 variable "enable_accepter_route" {
   description = "Enable accepter routes to requester vpc"
   type        = bool
-  default     = false
+  default     = true
 }
