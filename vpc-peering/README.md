@@ -1,10 +1,21 @@
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.63 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
-| <a name="provider_aws.accepter"></a> [aws.accepter](#provider\_aws.accepter) | n/a |
-| <a name="provider_aws.requester"></a> [aws.requester](#provider\_aws.requester) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.63 |
+| <a name="provider_aws.accepter"></a> [aws.accepter](#provider\_aws.accepter) | >= 3.63 |
+| <a name="provider_aws.requester"></a> [aws.requester](#provider\_aws.requester) | >= 3.63 |
+
+## Modules
+
+No modules.
 
 ## Resources
 
@@ -32,7 +43,7 @@
 | <a name="input_accepter_vpc_id"></a> [accepter\_vpc\_id](#input\_accepter\_vpc\_id) | The id of the accepter vpc | `string` | n/a | yes |
 | <a name="input_allow_remote_vpc_dns_resolution"></a> [allow\_remote\_vpc\_dns\_resolution](#input\_allow\_remote\_vpc\_dns\_resolution) | Allow accepter vpc to resolve public dns hostnames to private ip addresses when queried from instances in the requester vpc | `bool` | `true` | no |
 | <a name="input_auto_accept"></a> [auto\_accept](#input\_auto\_accept) | Whether or not to accept the peering request | `bool` | `true` | no |
-| <a name="input_enable_accepter_route"></a> [enable\_accepter\_route](#input\_enable\_accepter\_route) | Enable accepter routes to requester vpc | `bool` | `false` | no |
+| <a name="input_enable_accepter_route"></a> [enable\_accepter\_route](#input\_enable\_accepter\_route) | Enable accepter routes to requester vpc | `bool` | `true` | no |
 | <a name="input_enable_requester_route"></a> [enable\_requester\_route](#input\_enable\_requester\_route) | Enable requester routes to accepter vpc | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of vpc peer | `string` | n/a | yes |
 | <a name="input_requester_assume_role_arn"></a> [requester\_assume\_role\_arn](#input\_requester\_assume\_role\_arn) | Requester assume role arn | `string` | n/a | yes |
