@@ -16,7 +16,7 @@ data "aws_subnets" "requester" {
 
 # Get all route tables from the requester vpc
 data "aws_route_table" "requester" {
-  count     = length(data.aws_subnets.requester.ids)
+  count = length(data.aws_subnets.requester.ids)
 
   provider  = aws.requester
   subnet_id = data.aws_subnets.requester.ids[count.index]
@@ -41,7 +41,7 @@ data "aws_subnets" "accepter" {
 
 # Get all route tables from the accepter vpc
 data "aws_route_table" "accepter" {
-  count     = length(data.aws_subnets.accepter.ids)
+  count = length(data.aws_subnets.accepter.ids)
 
   provider  = aws.accepter
   subnet_id = data.aws_subnets.accepter.ids[count.index]

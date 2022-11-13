@@ -1,5 +1,6 @@
-module "vpc-peering" {
-  source = "../../vpc-peering"
+module "vpc_peering" {
+  # source = "git::git@github.com:tankibaj/terraform-modules.git//vpc-peering?ref=v0.0.1"
+  source = "../"
 
   name = "development-to-staging"
 
