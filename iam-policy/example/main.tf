@@ -1,5 +1,6 @@
 module "policy" {
-  source = "../../../iam-policy"
+  # source = "git::git@github.com:tankibaj/terraform-modules.git//iam-policy?ref=v0.0.1"
+  source = "../../iam-policy"
 
   # Policy name
   name        = "test-policy-module"

@@ -1,4 +1,5 @@
-module "public_ip" {
+module "eip" {
+  # source = "git::git@github.com:tankibaj/terraform-modules.git//eip?ref=v0.0.1"
   source = "../"
 
   count = 3

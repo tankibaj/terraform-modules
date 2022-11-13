@@ -7,19 +7,19 @@ terraform {
       version = ">= 3.72"
     }
   }
-  backend "s3" {
-    bucket         = "terraform"
-    key            = "development/eip.tfstate"
-    dynamodb_table = "terraform"
-    region         = "eu-central-1"
-    kms_key_id     = "arn:aws:kms:eu-central-1:XXXXXXXXXXXX:alias/terraform"
-  }
+  #  backend "s3" {
+  #    bucket         = "terraform"
+  #    key            = "development/eip.tfstate"
+  #    dynamodb_table = "terraform"
+  #    region         = "eu-central-1"
+  #    kms_key_id     = "arn:aws:kms:eu-central-1:XXXXXXXXXXXX:alias/terraform"
+  #  }
 }
 
 provider "aws" {
   region = "eu-central-1"
 
-#  assume_role {
-#    role_arn = "arn:aws:iam::XXXXXXXXXXX:role/OrganizationAccountAccessRole"
-#  }
+  #  assume_role {
+  #    role_arn = "arn:aws:iam::XXXXXXXXXXX:role/OrganizationAccountAccessRole"
+  #  }
 }

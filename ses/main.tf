@@ -11,7 +11,8 @@ resource "aws_route53_record" "amazonses_verification_record" {
   name    = "_amazonses.${var.domain}"
   type    = "TXT"
   ttl     = "60"
-  records = [join("", aws_ses_domain_identity.this.*.verification_token)]
+  # records = [join("", aws_ses_domain_identity.this.*.verification_token)]
+  records = [join("", [for item in aws_ses_domain_identity.this : item.verification_token[*]])]
 }
 
 resource "aws_ses_domain_dkim" "this" {
@@ -69,4 +70,3 @@ module "ses_user_policy" {
     Terraform = true
   }
 }
-
