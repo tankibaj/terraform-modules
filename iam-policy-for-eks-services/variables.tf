@@ -60,3 +60,15 @@ variable "cortex_s3_bucket_arns" {
   type        = list(string)
   default     = ["*"]
 }
+
+# --- KMS
+variable "attach_kms_policy" {
+  description = "Determines whether to attach the KMS IAM policy to the role"
+  type        = bool
+  default     = false
+}
+variable "kms_arns" {
+  description = "List of KMS ARNs that EKS cluster needs"
+  type        = list(string)
+  default     = ["*"] # -- Don't use kms alias arn
+}
