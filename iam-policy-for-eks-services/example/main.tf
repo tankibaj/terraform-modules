@@ -11,7 +11,7 @@ module "policy" {
   velero_s3_bucket_arns = ["arn:aws:s3:::velero-backup"]
 
   attach_cortex_policy  = true
-  cortex_s3_bucket_arns = ["arn:aws:s3:::cortex-metrics"]
+  cortex_s3_bucket_arns = ["arn:aws:s3:::cortex-metrics", "arn:aws:s3:::cortex-alerts"]
 
   attach_loki_policy  = true
   loki_s3_bucket_arns = ["arn:aws:s3:::loki-logs"]
