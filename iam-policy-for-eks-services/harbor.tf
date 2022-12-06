@@ -1,18 +1,18 @@
 #=========================================================================
 #      ---------------| Harbor Policy |---------------
 #=========================================================================
+# -- https://docs.docker.com/registry/storage-drivers/s3/#s3-permission-scopes
 data "aws_iam_policy_document" "harbor" {
   count = var.attach_harbor_policy ? 1 : 0
 
   statement {
-    sid = "S3ReadWrite"
+    sid = "S3Write"
     actions = [
+      "s3:PutObject",
       "s3:GetObject",
       "s3:DeleteObject",
-      "s3:PutObject",
-      "s3:AbortMultipartUpload",
       "s3:ListMultipartUploadParts",
-      "s3:ListBucketMultipartUploads" # Harbor requires
+      "s3:AbortMultipartUpload",
     ]
     resources = [for bucket in var.harbor_s3_bucket_arns : "${bucket}/*"]
   }
@@ -20,8 +20,9 @@ data "aws_iam_policy_document" "harbor" {
   statement {
     sid = "S3List"
     actions = [
-      "s3:GetBucketLocation",
       "s3:ListBucket",
+      "s3:GetBucketLocation",
+      "s3:ListBucketMultipartUploads"
     ]
     resources = var.harbor_s3_bucket_arns
   }
