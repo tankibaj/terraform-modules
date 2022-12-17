@@ -1,0 +1,15 @@
+---
+version: 2
+ethernets:
+  ens3:
+    dhcp4: false
+    addresses:
+      - ${IP_ADDRESS}
+    routes:
+      - to: default
+        via: ${GATEWAY}
+    nameservers:
+      addresses:
+        - ${GATEWAY}
+  ens4:
+    dhcp4: true
