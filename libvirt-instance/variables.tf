@@ -27,17 +27,6 @@ variable "network_interface" {
   default     = []
 }
 
-#variable "network_name" {
-#  description = "Name of network to associate with instance"
-#  type        = string
-#  default     = ""
-#}
-#
-#variable "network_wait_for_lease" {
-#  description = "Whether instance will be wait for the DHCP IP lease"
-#  default     = false
-#}
-
 variable "graphics_type" {
   description = "Type of graphics emulation. spice | vnc"
   type        = string
@@ -78,6 +67,12 @@ variable "user_data" {
   description = "Cloud-init user data"
   type        = string
   default     = ""
+}
+
+variable "filesystem" {
+  description = "Sharing filesystem between libvirt host and guest"
+  type        = list(map(any))
+  default     = []
 }
 
 variable "network_config" {

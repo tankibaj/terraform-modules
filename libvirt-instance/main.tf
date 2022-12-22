@@ -46,6 +46,15 @@ resource "libvirt_domain" "this" {
 
   cloudinit = var.user_data != "" ? libvirt_cloudinit_disk.this[0].id : null
 
+  dynamic "filesystem" {
+    for_each = var.filesystem
+    content {
+      source   = lookup(filesystem.value, "source", null)
+      target   = lookup(filesystem.value, "target", null)
+      readonly = lookup(filesystem.value, "readonly", true)
+    }
+  }
+
   graphics {
     type           = var.graphics_type
     listen_type    = "address"
