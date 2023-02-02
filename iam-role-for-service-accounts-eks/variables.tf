@@ -1,9 +1,9 @@
-variable "cluster_id" {
+variable "eks_cluster_id" {
   description = "EKS cluster ID"
   type        = string
 }
 
-variable "oidc_provider_arn" {
+variable "eks_oidc_provider_arn" {
   description = "ARN of the EKS cluster OIDC provider"
   type        = string
 }

@@ -8,7 +8,7 @@ module "argocd" {
 
   oidc_providers = {
     argocd = {
-      provider_arn               = var.oidc_provider_arn
+      provider_arn               = var.eks_oidc_provider_arn
       namespace_service_accounts = ["argocd:argocd-server", "argocd:argocd-application-controller"]
     }
   }
