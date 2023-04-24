@@ -21,14 +21,14 @@ resource "vault_approle_auth_backend_role" "this" {
 }
 
 resource "vault_approle_auth_backend_role_secret_id" "this" {
-#  count = var.create_secret_id ? 1 : 0
+  #  count = var.create_secret_id ? 1 : 0
 
   backend   = data.vault_auth_backend.this.path
   role_name = vault_approle_auth_backend_role.this.role_name
 }
 
 resource "vault_approle_auth_backend_login" "this" {
-#  count = var.enable_login && var.create_secret_id ? 1 : 0
+  #  count = var.enable_login && var.create_secret_id ? 1 : 0
 
   backend   = data.vault_auth_backend.this.path
   role_id   = vault_approle_auth_backend_role.this.role_id

@@ -33,7 +33,7 @@ variable "local" {
 }
 
 variable "options" {
-  type        = map
+  type        = map(any)
   default     = {}
   description = "Specifies mount type specific options that are passed to the backend"
 }

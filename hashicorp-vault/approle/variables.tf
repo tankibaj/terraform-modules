@@ -48,15 +48,3 @@ variable "token_period" {
   default     = 0
   description = "If set, indicates that the token generated using this role should never expire. The token should be renewed within the duration specified by this value. At each renewal, the token's TTL will be set to the value of this field. Specified in seconds."
 }
-
-variable "enable_login" {
-  type        = bool
-  description = "Enable login feature"
-  default     = false
-}
-
-variable "create_secret_id" {
-  type        = bool
-  description = "Create secret_id"
-  default     = false
-}
