@@ -14,7 +14,7 @@
 
 ```hcl
 module "secrets_engine" {
-  source = "git::git@github.com:tankibaj/terraform-modules.git//hashicorp-vault/approle?ref=v0.0.1"
+  source = "git::git@github.com:tankibaj/terraform-modules.git//hashicorp-vault/secrets_engine?ref=v0.0.1"
 
   path = "secret"
   type = "kv"
