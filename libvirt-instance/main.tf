@@ -55,7 +55,7 @@ resource "libvirt_domain" "this" {
     }
   }
 
-  cpu = {
+  cpu {
     mode = "host-passthrough"
   }
 
