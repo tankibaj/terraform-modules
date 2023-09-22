@@ -55,6 +55,10 @@ resource "libvirt_domain" "this" {
     }
   }
 
+  cpu = {
+    mode = "host-passthrough"
+  }
+
   graphics {
     type           = var.graphics_type
     listen_type    = "address"
